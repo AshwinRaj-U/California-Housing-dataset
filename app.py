@@ -22,6 +22,13 @@ def predict_api():
     print(output)
     return jsonify({'prediction': output.tolist()})
 
+@app.route('/predict',methods=['POST'])
+def predict():
+    form_data = request.form.to_dict()
+    data = {key: float(value) for key, value in form_data.items()}
+    final_input = pd.DataFrame([data])
+    final_output=model.predict(final_input)[0]
+    return render_template('home.html',prediction_text="The predicted House price is {}".format(final_output))
 
 @app.errorhandler(Exception)
 def handle_exception(e):

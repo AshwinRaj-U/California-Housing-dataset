@@ -1,3 +1,34 @@
-<h1>
-Hello World
-</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>California House Price Prediction</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="register_page">
+        <div class="form">
+            <form action="{{url_for('predict')}}" method="POST">
+                MedInc: <input type="number" step="any" name='MedInc' placeholder="Enter the MedInc"><br>
+                HouseAge: <input type="number" step="any" name='HouseAge' placeholder="Enter the HouseAge"><br>
+                AveRooms: <input type="number" step="any" name='AveRooms' placeholder="Enter the AveRooms"><br>
+                AveBedrms: <input type="number" step="any" name='AveBedrms' placeholder="Enter AveBedrms"><br>
+                Population: <input type="number" step="any" name='Population' placeholder="Enter Population"><br>
+                AveOccup: <input type="number" step="any" name='AveOccup' placeholder="Enter AveOccup"><br>
+                Latitude: <input type="number" step="any" name='Latitude' placeholder="Enter Latitude"><br>
+                Longitude: <input type="number" step="any" name='Longitude' placeholder="Enter Longitude"><br>
+                <input type="submit" value="predict" class="submit">
+            </form>
+            <p> {{prediction_text}}</p>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
